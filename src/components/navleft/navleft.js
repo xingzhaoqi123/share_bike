@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Icon } from "antd";
+import { Menu } from "antd";
 import './navleft.less'
 const MenuItem = Menu.Item;
 class navleft extends Component {

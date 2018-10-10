@@ -11,9 +11,38 @@
         }
         .header-user {
             margin-right: 15px;
-            .header-username{
-            color: sandybrown;    
+            .header-username {
+                color: sandybrown;
             }
+        }
+    }
+}
+
+.weather-wrap {
+    line-height: 40px;
+    .breadcrumb {
+        position: relative;
+        width: 12.5%;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -24px;
+            transform: translateX(-50%);
+            border: 12px solid transparent;
+            border-top: 12px solid #fff;
+            width: 0;
+            height: 0;
+        }
+    }
+    .weather-info {
+        padding-right: 30px;
+        .weather {
+            margin-left: 20px;
+            font-weight: 700;
         }
     }
 }

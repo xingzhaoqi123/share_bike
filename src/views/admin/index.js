@@ -14,10 +14,10 @@ class index extends Component {
                     </Col>
                     <Col span={20} className='content'>
                         <Header />
-                        <div className="content-wrap">
+                        <div className="content-info">
                             {this.props.children}
                         </div>
-                        <Footer />
+                        <Footer></Footer>
                     </Col>
                 </Row>
             </div>
