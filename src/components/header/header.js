@@ -7,68 +7,68 @@ const formDate = utils.formatDate;
 class header extends Component {
     state = {
         date: "",
-        weather: "",
-        cip: "",
-        city: ""
+        weather: ""
+        // cip: "",
+        // city: ""
     };
-    // getWeather() {
-    //     axios
-    //         .get("http://t.weather.sojson.com/api/weather/city/101010100")
-    //         .then(res => {
-    //             let weinfo = res.data.forecast[0];
-    //             let we = `${weinfo.low}~${weinfo.high},${weinfo.fx}${
-    //                 weinfo.fl
-    //             }`;
-    //             this.setState({
-    //                 weather: we
-    //             });
-    //         });
-    // }
-    getCity() {
-        axios
-            .get("http://pv.sohu.com/cityjson")
-            .then(res => {
-                let cityinfo = res.split("=")[1];
-                var json = new Function("return " + cityinfo)();
-                // console.log(json.cip);
-                this.setState({
-                    cip: json.cip
-                });
-                this.getinfo();
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-    getinfo() {
-        axios
-            .get(
-                `http://ip.taobao.com/service/getIpInfo.php?ip=${
-                    this.state.cip
-                }`
-            )
-            .then(res => {
-                this.setState({
-                    city: res.data.city
-                });
-                this.getWeather();
-            });
-    }
     getWeather() {
         axios
-            .get(
-                `http://wthrcdn.etouch.cn/weather_mini?city=${this.state.city}`
-            )
+            .get("http://t.weather.sojson.com/api/weather/city/101010100")
             .then(res => {
                 let weinfo = res.data.forecast[0];
-                var r = /^.+?\[(.+?)\].+?\[(.+?)\].*$/;
-                var fl= r.exec(weinfo.fengli);
-                let we = `${weinfo.low}~${weinfo.high},${weinfo.fengxiang}${fl}`;
+                let we = `${weinfo.low}~${weinfo.high},${weinfo.fx}${
+                    weinfo.fl
+                }`;
                 this.setState({
                     weather: we
                 });
             });
     }
+    // getCity() {
+    //     axios
+    //         .get("http://pv.sohu.com/cityjson")
+    //         .then(res => {
+    //             let cityinfo = res.split("=")[1];
+    //             var json = new Function("return " + cityinfo)();
+    //             // console.log(json.cip);
+    //             this.setState({
+    //                 cip: json.cip
+    //             });
+    //             this.getinfo();
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // }
+    // getinfo() {
+    //     axios
+    //         .get(
+    //             `http://ip.taobao.com/service/getIpInfo.php?ip=${
+    //                 this.state.cip
+    //             }`
+    //         )
+    //         .then(res => {
+    //             this.setState({
+    //                 city: res.data.city
+    //             });
+    //             this.getWeather();
+    //         });
+    // }
+    // getWeather() {
+    //     axios
+    //         .get(
+    //             `http://wthrcdn.etouch.cn/weather_mini?city=${this.state.city}`
+    //         )
+    //         .then(res => {
+    //             let weinfo = res.data.forecast[0];
+    //             var r = /^.+?\[(.+?)\].+?\[(.+?)\].*$/;
+    //             var fl= r.exec(weinfo.fengli);
+    //             let we = `${weinfo.low}~${weinfo.high},${weinfo.fengxiang}${fl}`;
+    //             this.setState({
+    //                 weather: we
+    //             });
+    //         });
+    // }
     gettime() {
         setInterval(() => {
             let unixTime = new Date().getTime();
@@ -80,7 +80,8 @@ class header extends Component {
     }
     componentWillMount() {
         this.gettime();
-        this.getCity();
+        // this.getCity();
+        this.getWeather();
     }
     render() {
         return (

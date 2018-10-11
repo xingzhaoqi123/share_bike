@@ -5,6 +5,9 @@ import Admin from "../../views/admin";
 import secondPage from '../../views/secondPage'
 import NotMatch from "../../views/notMatch";
 import page404 from '../../views/notMatch/page404'
+import orderForm from '../../views/orderForm'
+import pie from '../../views/echarts/pie'
+import bar from '../../views/echarts/bar'
 class index extends Component {
     render() {
         return (
@@ -14,8 +17,11 @@ class index extends Component {
                         <Route path="/admin" render={() => 
                             <Admin>
                         <Switch>
-                          <Route path="/admin/home" component={Home}></Route>
+                          <Route path="/admin/Home" component={Home}></Route>
                           <Route path="/admin/secondPage" component={secondPage}></Route>
+                          <Route path='/admin/echarts/bar' component={bar}></Route> 
+                          <Route path='/admin/orderForm' component={orderForm}></Route> 
+                          <Route path='/admin/echarts/pie' component={pie}></Route>
                           <Route component={page404}></Route>
                         </Switch>
                             </Admin> 
