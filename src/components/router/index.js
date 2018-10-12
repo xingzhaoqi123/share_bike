@@ -8,12 +8,14 @@ import page404 from '../../views/notMatch/page404'
 import orderForm from '../../views/orderForm'
 import pie from '../../views/echarts/pie'
 import bar from '../../views/echarts/bar'
+import detail from '../../views/orderForm/orderDetail'
 class index extends Component {
     render() {
         return (
             <HashRouter>
                 <div>
                     <Switch>
+                        <Route path='/common/order/detail/:id' component={detail}></Route>
                         <Route path="/admin" render={() => 
                             <Admin>
                         <Switch>
@@ -24,7 +26,7 @@ class index extends Component {
                           <Route path='/admin/echarts/pie' component={pie}></Route>
                           <Route component={page404}></Route>
                         </Switch>
-                            </Admin> 
+                            </Admin>  
                     } />
                         <Route component={NotMatch} />
                     </Switch>

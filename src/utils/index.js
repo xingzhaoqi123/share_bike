@@ -1,4 +1,3 @@
-
 export default {
     formatDate(unix) {
         function fixZero(num) {
