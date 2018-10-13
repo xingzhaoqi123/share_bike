@@ -182,7 +182,7 @@ class orderForm extends Component {
         axios
             .get("/order/finish_order", { id: this.state.selectedItem.id })
             .then(res => {
-                if(res.code == 0){
+                if(res.code === "0"){
                     this.getOrder();
                 }
             });

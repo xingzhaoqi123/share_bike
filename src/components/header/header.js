@@ -86,6 +86,7 @@ class header extends Component {
     render() {
         return (
             <div className="header-wrap">
+                <div className="head_title fll">共享单车</div>
                 <div className="user-info">
                     <div className="header-info">
                         <div className="flr header-logout">
